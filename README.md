@@ -1,2 +1,11 @@
-# SAQL_DEVELOPER
-SAQL para Salesforce
+# SOQL_DEVELOPER
+SOQL para Salesforce
+-------------------------------------
+-- Contagem de campos iválidos (email, celular) em uma query no SFMC --
+
+SELECT 
+ESPECIALIDADE,
+    COUNT(CASE WHEN EMAIL <> 'INVALIDO' THEN 1 END) AS QTD_EMAIL_VALIDO,
+    COUNT(CASE WHEN CELULAR <> 'INVALIDO' THEN 1 END) AS QTD_CELULAR_VALIDO
+FROM TB_SFMC -- EXEMPLO DE TABELA
+GROUP BY ESPECIALIDADE
